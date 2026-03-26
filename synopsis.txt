@@ -1,0 +1,129 @@
+## PROJECT SYNOPSIS
+
+### **Title of the Project**
+
+**High-Performance Image Processing: GPU-Accelerated Edge Detection with Real-Time Visualization using CUDA**
+
+---
+
+### **Team Details**
+
+* Tanay Shankarikoppa (Reg no: 230905502, Roll no: 61)
+* Kevin Vataliya (Reg no: 230905366, Roll no: 51)
+* Kumar Harsh (Reg no: 230905460, Roll no: 57)
+* Shruthi Andra (Reg no: 230905223, Roll no: 35)
+
+**School Name:** Manipal Institute of Technology
+**Guide:** Dr. Neelima B
+**Date of Submission:** March 2026
+
+---
+
+### **1. Introduction**
+
+Edge detection is a fundamental operation in computer vision, used to identify object boundaries by detecting intensity discontinuities in images. The Sobel operator is widely used due to its simplicity and noise-smoothing properties through 3×3 convolution filters.
+
+However, traditional CPU-based implementations process pixels sequentially, leading to performance bottlenecks when handling high-resolution images or real-time video streams. This project addresses this limitation by leveraging NVIDIA CUDA to exploit GPU parallelism, enabling simultaneous processing of thousands of pixels.
+
+Additionally, the project extends beyond static image processing by incorporating real-time visualization, making it suitable for practical applications such as video analytics and computer vision systems.
+
+---
+
+### **2. Literature Review**
+
+The Sobel operator remains a standard approach for gradient-based edge detection due to its computational efficiency and robustness. Conventional implementations rely on CPU architectures (SISD), which limit performance for large-scale data.
+
+Recent advancements in General-Purpose GPU (GPGPU) computing using CUDA have demonstrated significant acceleration by adopting a SIMT (Single Instruction, Multiple Threads) model. Research highlights the importance of optimizing memory access patterns, particularly through shared memory usage and memory coalescing, to reduce latency during convolution operations.
+
+This project builds upon these principles by implementing both naive and optimized CUDA kernels and evaluating their performance against CPU-based methods.
+
+---
+
+### **3. Problem Statement**
+
+CPU-based edge detection algorithms are inefficient for large images and real-time applications due to their sequential execution model. While GPUs offer parallelism, improper memory management and kernel design can negate performance gains.
+
+The challenge is to design and implement an efficient CUDA-based edge detection system that:
+
+* Minimizes memory transfer overhead between host and device
+* Optimizes memory access using shared memory
+* Achieves significant speedup over CPU implementations
+* Supports real-time processing for practical usability
+
+---
+
+### **4. Objectives**
+
+* **Baseline Implementation:** Develop a CPU-based Sobel edge detection algorithm for performance comparison
+* **CUDA Kernel Development:** Implement parallel Sobel filtering using CUDA kernels
+* **Memory Optimization:** Utilize shared memory and optimize global memory access patterns
+* **Performance Benchmarking:** Compare execution time across CPU, naive GPU, and optimized GPU implementations
+* **Real-Time Processing:** Extend the system to process video frames using OpenCV
+* **Efficiency Analysis:** Measure speedup, throughput, and identify performance bottlenecks
+
+---
+
+### **5. Methodology**
+
+1. **CPU Implementation:**
+   Develop a sequential Sobel filter using C++ and OpenCV to serve as a baseline.
+
+2. **Naive CUDA Implementation:**
+   Implement a basic CUDA kernel where each thread processes a single pixel.
+
+3. **Optimized CUDA Implementation:**
+   Enhance performance by:
+
+   * Using shared memory for faster data access
+   * Ensuring memory coalescing
+   * Optimizing grid and block configurations
+
+4. **Benchmarking:**
+   Measure execution time using CUDA events and compare performance across different image sizes.
+
+5. **Real-Time Integration:**
+   Integrate OpenCV to process live video streams and display edge-detected output with performance metrics.
+
+---
+
+### **6. Expected Outcomes**
+
+* Significant speedup of GPU implementation over CPU (measured in X× improvement)
+* Efficient real-time edge detection system
+* Comparative analysis demonstrating the impact of memory optimization
+* A scalable framework for GPU-based image processing tasks
+
+---
+
+### **7. Tools and Technologies**
+
+* **Programming Language:** C++
+* **GPU Framework:** NVIDIA CUDA
+* **Libraries:** OpenCV
+* **Profiling Tools:** NVIDIA Nsight (optional)
+* **Development Tools:** NVCC Compiler, Visual Studio / VS Code
+
+---
+
+### **8. Applications**
+
+* Real-time video processing
+* Autonomous systems and robotics
+* Medical image analysis
+* Surveillance and security systems
+
+---
+
+### **9. References**
+
+1. NVIDIA Corporation – CUDA C++ Programming Guide
+2. Gonzalez & Woods – Digital Image Processing
+3. Sanders & Kandrot – CUDA by Example
+4. Kirk & Hwu – Programming Massively Parallel Processors
+5. Sobel & Feldman – Gradient Operator for Image Processing
+
+---
+
+
+
+---

@@ -1,0 +1,329 @@
+# Project Methodology
+
+## Title
+
+High-Performance Image Processing: GPU-Accelerated Edge Detection with Real-Time Visualization using CUDA
+
+## 1. Project Understanding
+
+This project focuses on accelerating Sobel-based edge detection using NVIDIA CUDA and OpenCV. The core aim is to compare a conventional CPU implementation with two GPU-based approaches: a naive CUDA version and an optimized CUDA version. The optimized version is expected to improve performance through better memory handling, especially by using shared memory and coalesced access patterns.
+
+The project is not limited to static image processing. It also targets real-time video frame processing and visualization, making the work practical for computer vision applications such as surveillance, robotics, and video analytics.
+
+## 2. Objectives and Success Criteria
+
+### Objectives
+
+- Develop a CPU-based Sobel edge detector to serve as the baseline
+- Implement a naive CUDA kernel for parallel edge detection
+- Optimize the CUDA implementation using shared memory and better memory access design
+- Benchmark CPU, naive GPU, and optimized GPU execution across different image sizes
+- Integrate OpenCV-based real-time video capture and display
+- Analyze speedup, throughput, and system bottlenecks
+
+### Success Criteria
+
+- The CPU and GPU implementations produce visually consistent edge maps
+- The CUDA versions execute correctly on supported NVIDIA hardware
+- The optimized CUDA version performs better than the naive CUDA version under representative workloads
+- The GPU implementation demonstrates measurable speedup over the CPU baseline
+- The system supports stable real-time frame processing with visible output and timing metrics
+- Benchmarking and conclusions are documented clearly and reproducibly
+
+## 3. Methodology Overview
+
+The methodology follows a staged engineering workflow that begins with scope confirmation and environment setup, then progresses through baseline development, GPU implementation, optimization, benchmarking, real-time integration, validation, and final documentation.
+
+The project is executed in a comparative manner. Each implementation stage is validated before moving to the next so that correctness is preserved while performance is improved.
+
+## 4. End-to-End Workflow
+
+### Phase 1: Project Initiation and Scope Definition
+
+The first phase establishes a clear understanding of the project scope based on the synopsis. The team confirms the problem statement, deliverables, technology stack, and performance goals. At this stage, the project is framed around three required implementations: CPU baseline, naive CUDA, and optimized CUDA.
+
+#### Inputs
+- Project synopsis
+- Team and guide expectations
+- Available hardware and software resources
+
+#### Activities
+- Define project boundaries and expected outputs
+- Confirm use of C++, CUDA, and OpenCV
+- Identify target execution platform and GPU capability
+- Finalize the comparison approach between CPU and GPU paths
+
+#### Outputs
+- Project scope definition
+- Implementation roadmap
+- Hardware and software prerequisites
+
+### Phase 2: Environment Setup and Repository Preparation
+
+This phase ensures that the development environment is ready before implementation begins. CUDA toolkit availability, compatible NVIDIA drivers, OpenCV installation, and compiler support are verified. A basic repository structure is also established for source code, benchmarking, documentation, and sample inputs.
+
+#### Inputs
+- Target machine configuration
+- CUDA and OpenCV dependencies
+- Repository workspace
+
+#### Activities
+- Install and verify CUDA toolkit and GPU drivers
+- Install OpenCV and confirm integration with C++
+- Set up the build configuration using an appropriate system such as CMake
+- Organize folders for CPU code, CUDA code, shared utilities, benchmarking, and documentation
+
+#### Outputs
+- Working development environment
+- Validated build pipeline
+- Structured project repository
+
+### Phase 3: Requirements and Benchmark Design
+
+Before coding, the project defines how correctness and performance will be measured. This includes selecting image sizes, video sources, timing methods, and output comparison criteria.
+
+#### Inputs
+- Project objectives
+- Test images and video samples
+- Hardware constraints
+
+#### Activities
+- Define evaluation metrics such as execution time, FPS, throughput, and speedup
+- Select representative image resolutions and video inputs
+- Decide how CPU and GPU outputs will be validated for consistency
+- Establish repeatable benchmark conditions using multiple runs and average measurements
+
+#### Outputs
+- Benchmark plan
+- Input dataset list
+- Validation criteria
+
+### Phase 4: System Design and Implementation Planning
+
+This phase converts project requirements into a technical structure. The workflow, data handling, and module boundaries are planned so that CPU and GPU versions can be implemented and compared consistently.
+
+#### Inputs
+- Benchmark plan
+- Project scope
+- Technology stack
+
+#### Activities
+- Define modules for image input, preprocessing, Sobel filtering, visualization, and timing
+- Plan data flow between host memory and device memory
+- Establish common interfaces for CPU and GPU execution paths
+- Decide on border handling, grayscale processing, and output normalization strategy
+
+#### Outputs
+- Technical design outline
+- Module separation plan
+- Data flow and execution model
+
+### Phase 5: CPU Baseline Implementation
+
+The CPU implementation serves as the functional reference for all later stages. A sequential Sobel filter is developed using C++ and OpenCV. This version is used to confirm output correctness and establish baseline timing.
+
+#### Inputs
+- Sobel operator definition
+- OpenCV for image I/O and visualization
+- Test images
+
+#### Activities
+- Implement Sobel filtering on the CPU
+- Handle image loading, grayscale conversion, and output display
+- Add timing instrumentation for baseline measurements
+- Generate reference outputs for later GPU comparison
+
+#### Outputs
+- Working CPU-based Sobel implementation
+- Baseline performance data
+- Reference output images
+
+### Phase 6: Naive CUDA Implementation
+
+Once the CPU baseline is validated, a basic CUDA implementation is developed. In this version, each thread is assigned to compute edge information for one pixel. The purpose of this phase is to establish initial GPU acceleration and expose memory-transfer costs.
+
+#### Inputs
+- CPU reference implementation
+- CUDA-enabled development environment
+
+#### Activities
+- Allocate device memory and transfer image data from host to device
+- Implement a simple CUDA kernel for Sobel filtering
+- Launch kernels with an initial block and grid configuration
+- Copy results back to host for visualization and comparison
+- Measure total time, transfer time, and kernel time
+
+#### Outputs
+- Working naive CUDA implementation
+- Initial GPU benchmark results
+- Correctness comparison against CPU output
+
+### Phase 7: Optimized CUDA Implementation
+
+The optimized CUDA phase improves upon the naive kernel by reducing memory access overhead and making better use of GPU architecture. Shared memory is introduced to reduce repeated global memory reads, and memory access is arranged for better coalescing.
+
+#### Inputs
+- Naive CUDA implementation
+- Benchmark observations
+- GPU architecture considerations
+
+#### Activities
+- Introduce shared memory to store image tiles for convolution
+- Improve global memory access efficiency
+- Tune block and grid dimensions for better occupancy and performance
+- Reduce unnecessary host-device transfers where possible
+- Revalidate output correctness after each optimization step
+
+#### Outputs
+- Optimized CUDA implementation
+- Performance improvement over naive CUDA
+- Tuned kernel configuration notes
+
+### Phase 8: Benchmarking and Performance Analysis
+
+After all three implementations are available, controlled benchmarking is performed. The methodology compares CPU, naive GPU, and optimized GPU execution under the same conditions.
+
+#### Inputs
+- Completed implementations
+- Benchmark datasets
+- Timing instrumentation
+
+#### Activities
+- Run benchmarks on multiple image sizes and frame resolutions
+- Record total runtime, kernel runtime, transfer overhead, FPS, and speedup ratios
+- Repeat tests under consistent conditions and compute representative results
+- Analyze where GPU acceleration helps most and where transfer overhead limits gains
+
+#### Outputs
+- Benchmark tables and observations
+- Comparative performance analysis
+- Evidence for optimization impact
+
+### Phase 9: Real-Time Video Integration
+
+This phase extends the image-based solution into a real-time system using OpenCV video capture. The selected processing path is applied to incoming frames and the output is displayed live with performance information.
+
+#### Inputs
+- Stable CPU and GPU implementations
+- Webcam or video file input
+- OpenCV display pipeline
+
+#### Activities
+- Capture frames using OpenCV
+- Process each frame with the chosen implementation path
+- Display original and edge-detected frames in real time
+- Show timing metrics such as processing latency or FPS
+- Ensure stable handling of continuous frame streams
+
+#### Outputs
+- Real-time edge detection demo
+- Live performance visualization
+- Practical proof of system usability
+
+### Phase 10: Validation and Quality Assurance
+
+Validation is performed throughout the project, but this phase consolidates all correctness and stability checks before final delivery. The system is tested against different input types, dimensions, and runtime conditions.
+
+#### Inputs
+- Finalized implementations
+- Test images and video streams
+- Benchmark results
+
+#### Activities
+- Compare CPU and GPU outputs for consistency
+- Test small, medium, and large input resolutions
+- Check non-ideal cases such as noisy inputs or irregular dimensions
+- Verify memory safety, kernel launch stability, and runtime reliability
+- Confirm that the application builds and runs cleanly on the target setup
+
+#### Outputs
+- Validation report
+- Final bug fixes
+- Release readiness confirmation
+
+### Phase 11: Documentation and Final Delivery
+
+The final phase packages the project for demonstration and submission. The methodology, implementation details, usage instructions, and performance findings are documented clearly so the work can be reproduced and evaluated.
+
+#### Inputs
+- Final source code
+- Benchmark results
+- Setup and run instructions
+
+#### Activities
+- Document the project overview, objectives, and methodology
+- Write setup instructions for CUDA, OpenCV, and build execution
+- Present benchmark results using tables, graphs, or concise analysis
+- Summarize conclusions, limitations, and possible future work
+- Prepare the project for review, demo, or academic submission
+
+#### Outputs
+- Completed project documentation
+- Final report-ready methodology
+- Submission and demo package
+
+## 5. Risks, Assumptions, and Controls
+
+### Risks
+
+- CUDA compatibility issues may delay implementation if GPU drivers or toolkit versions are not aligned
+- GPU acceleration may not outperform the CPU for very small images because of transfer overhead
+- Incorrect memory handling may produce output mismatch or unstable behavior in CUDA kernels
+- Real-time performance may vary depending on input resolution and available GPU resources
+
+### Assumptions
+
+- A CUDA-capable NVIDIA GPU is available for development and testing
+- OpenCV is used for image and video handling
+- Sobel edge detection remains the core algorithmic focus of the project
+- The project is developed as a comparative academic and technical implementation
+
+### Environment Note
+
+- Local development may be used for documentation, planning, and CPU-side work
+- Google Colab may be used for CUDA compilation and execution when local `nvcc` compatibility is unavailable
+- Reported CUDA benchmark results should identify the environment in which they were collected
+
+### Controls
+
+- Validate the environment before implementation begins
+- Use the CPU implementation as the correctness reference
+- Benchmark under fixed and repeatable conditions
+- Apply optimization incrementally and verify output after each change
+- Document hardware and software versions used for all final results
+
+## 6. Suggested Milestones
+
+### Milestone 1: Planning and Setup
+- Scope finalized
+- Environment configured
+- Repository organized
+
+### Milestone 2: CPU Baseline Complete
+- Sequential Sobel implementation working
+- Baseline timing recorded
+
+### Milestone 3: Naive CUDA Working
+- Basic GPU implementation validated
+- First CPU vs GPU comparison available
+
+### Milestone 4: Optimized CUDA Complete
+- Shared memory optimization integrated
+- Measurable improvement over naive CUDA observed
+
+### Milestone 5: Benchmarking Complete
+- Comparative results captured across different input sizes
+- Performance analysis documented
+
+### Milestone 6: Real-Time Demo Ready
+- Video stream processing integrated
+- Live output and metrics visible
+
+### Milestone 7: Final Documentation and Submission
+- Methodology finalized
+- README and usage instructions completed
+- Final project ready for demo and review
+
+## 7. Conclusion
+
+This methodology provides a structured path for building a GPU-accelerated edge detection system that is both technically sound and measurable in its performance gains. By progressing from a CPU reference model to naive and optimized CUDA implementations, the project ensures that correctness, speed, and real-time usability are evaluated in a disciplined and reproducible way. The result is a complete workflow suitable for execution, demonstration, and academic reporting.
