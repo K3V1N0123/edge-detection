@@ -142,6 +142,43 @@ cpu_baseline/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/build
 .PHONY : cpu_baseline/fast
 
+#=============================================================================
+# Target rules for targets named compare_images
+
+# Build rule for target.
+compare_images: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 compare_images
+.PHONY : compare_images
+
+# fast build rule for target.
+compare_images/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compare_images.dir/build.make CMakeFiles/compare_images.dir/build
+.PHONY : compare_images/fast
+
+src/common/image_io.o: src/common/image_io.cpp.o
+.PHONY : src/common/image_io.o
+
+# target to build an object file
+src/common/image_io.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edge_common.dir/build.make CMakeFiles/edge_common.dir/src/common/image_io.cpp.o
+.PHONY : src/common/image_io.cpp.o
+
+src/common/image_io.i: src/common/image_io.cpp.i
+.PHONY : src/common/image_io.i
+
+# target to preprocess a source file
+src/common/image_io.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edge_common.dir/build.make CMakeFiles/edge_common.dir/src/common/image_io.cpp.i
+.PHONY : src/common/image_io.cpp.i
+
+src/common/image_io.s: src/common/image_io.cpp.s
+.PHONY : src/common/image_io.s
+
+# target to generate assembly for a file
+src/common/image_io.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/edge_common.dir/build.make CMakeFiles/edge_common.dir/src/common/image_io.cpp.s
+.PHONY : src/common/image_io.cpp.s
+
 src/common/timer.o: src/common/timer.cpp.o
 .PHONY : src/common/timer.o
 
@@ -190,6 +227,54 @@ src/cpu/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/src/cpu/main.cpp.s
 .PHONY : src/cpu/main.cpp.s
 
+src/cpu/sobel_cpu.o: src/cpu/sobel_cpu.cpp.o
+.PHONY : src/cpu/sobel_cpu.o
+
+# target to build an object file
+src/cpu/sobel_cpu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/src/cpu/sobel_cpu.cpp.o
+.PHONY : src/cpu/sobel_cpu.cpp.o
+
+src/cpu/sobel_cpu.i: src/cpu/sobel_cpu.cpp.i
+.PHONY : src/cpu/sobel_cpu.i
+
+# target to preprocess a source file
+src/cpu/sobel_cpu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/src/cpu/sobel_cpu.cpp.i
+.PHONY : src/cpu/sobel_cpu.cpp.i
+
+src/cpu/sobel_cpu.s: src/cpu/sobel_cpu.cpp.s
+.PHONY : src/cpu/sobel_cpu.s
+
+# target to generate assembly for a file
+src/cpu/sobel_cpu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/src/cpu/sobel_cpu.cpp.s
+.PHONY : src/cpu/sobel_cpu.cpp.s
+
+src/tools/image_compare.o: src/tools/image_compare.cpp.o
+.PHONY : src/tools/image_compare.o
+
+# target to build an object file
+src/tools/image_compare.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compare_images.dir/build.make CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o
+.PHONY : src/tools/image_compare.cpp.o
+
+src/tools/image_compare.i: src/tools/image_compare.cpp.i
+.PHONY : src/tools/image_compare.i
+
+# target to preprocess a source file
+src/tools/image_compare.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compare_images.dir/build.make CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.i
+.PHONY : src/tools/image_compare.cpp.i
+
+src/tools/image_compare.s: src/tools/image_compare.cpp.s
+.PHONY : src/tools/image_compare.s
+
+# target to generate assembly for a file
+src/tools/image_compare.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compare_images.dir/build.make CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.s
+.PHONY : src/tools/image_compare.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -198,14 +283,24 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... compare_images"
 	@echo "... cpu_baseline"
 	@echo "... edge_common"
+	@echo "... src/common/image_io.o"
+	@echo "... src/common/image_io.i"
+	@echo "... src/common/image_io.s"
 	@echo "... src/common/timer.o"
 	@echo "... src/common/timer.i"
 	@echo "... src/common/timer.s"
 	@echo "... src/cpu/main.o"
 	@echo "... src/cpu/main.i"
 	@echo "... src/cpu/main.s"
+	@echo "... src/cpu/sobel_cpu.o"
+	@echo "... src/cpu/sobel_cpu.i"
+	@echo "... src/cpu/sobel_cpu.s"
+	@echo "... src/tools/image_compare.o"
+	@echo "... src/tools/image_compare.i"
+	@echo "... src/tools/image_compare.s"
 .PHONY : help
 
 

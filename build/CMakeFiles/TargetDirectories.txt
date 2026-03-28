@@ -1,4 +1,5 @@
 /Users/kevin/Documents/edge-detection/build/CMakeFiles/edge_common.dir
 /Users/kevin/Documents/edge-detection/build/CMakeFiles/cpu_baseline.dir
+/Users/kevin/Documents/edge-detection/build/CMakeFiles/compare_images.dir
 /Users/kevin/Documents/edge-detection/build/CMakeFiles/edit_cache.dir
 /Users/kevin/Documents/edge-detection/build/CMakeFiles/rebuild_cache.dir

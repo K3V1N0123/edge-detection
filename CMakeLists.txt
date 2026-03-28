@@ -16,6 +16,7 @@ target_compile_options(project_warnings INTERFACE
 )
 
 add_library(edge_common
+    src/common/image_io.cpp
     src/common/timer.cpp
 )
 
@@ -24,10 +25,18 @@ target_link_libraries(edge_common PUBLIC project_warnings)
 
 add_executable(cpu_baseline
     src/cpu/main.cpp
+    src/cpu/sobel_cpu.cpp
 )
 
 target_link_libraries(cpu_baseline PRIVATE edge_common)
 target_include_directories(cpu_baseline PRIVATE include)
+
+add_executable(compare_images
+    src/tools/image_compare.cpp
+)
+
+target_link_libraries(compare_images PRIVATE edge_common)
+target_include_directories(compare_images PRIVATE include)
 
 if(EDGE_DETECTION_ENABLE_OPENCV)
     find_package(OpenCV QUIET)
@@ -36,22 +45,34 @@ if(EDGE_DETECTION_ENABLE_OPENCV)
         target_link_libraries(cpu_baseline PRIVATE ${OpenCV_LIBS})
         target_include_directories(cpu_baseline PRIVATE ${OpenCV_INCLUDE_DIRS})
     else()
-        message(WARNING "OpenCV not found. cpu_baseline will build in placeholder mode.")
+        message(WARNING "OpenCV not found. cpu_baseline will use PGM file I/O mode.")
     endif()
 endif()
 
 if(EDGE_DETECTION_ENABLE_CUDA)
     enable_language(CUDA)
 
-    add_executable(cuda_stub
-        src/cuda/naive_stub.cu
+    add_executable(cuda_naive
+        src/cuda/sobel_naive.cu
     )
 
-    set_target_properties(cuda_stub PROPERTIES
+    add_executable(cuda_optimized
+        src/cuda/sobel_optimized.cu
+    )
+
+    set_target_properties(cuda_naive PROPERTIES
         CUDA_STANDARD 14
         CUDA_STANDARD_REQUIRED ON
     )
 
-    target_link_libraries(cuda_stub PRIVATE project_warnings)
-    target_include_directories(cuda_stub PRIVATE include)
+    set_target_properties(cuda_optimized PROPERTIES
+        CUDA_STANDARD 14
+        CUDA_STANDARD_REQUIRED ON
+    )
+
+    target_link_libraries(cuda_naive PRIVATE edge_common project_warnings)
+    target_include_directories(cuda_naive PRIVATE include)
+
+    target_link_libraries(cuda_optimized PRIVATE edge_common project_warnings)
+    target_include_directories(cuda_optimized PRIVATE include)
 endif()

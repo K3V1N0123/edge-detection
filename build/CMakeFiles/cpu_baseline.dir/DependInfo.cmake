@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/kevin/Documents/edge-detection/src/cpu/main.cpp" "CMakeFiles/cpu_baseline.dir/src/cpu/main.cpp.o" "gcc" "CMakeFiles/cpu_baseline.dir/src/cpu/main.cpp.o.d"
+  "/Users/kevin/Documents/edge-detection/src/cpu/sobel_cpu.cpp" "CMakeFiles/cpu_baseline.dir/src/cpu/sobel_cpu.cpp.o" "gcc" "CMakeFiles/cpu_baseline.dir/src/cpu/sobel_cpu.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

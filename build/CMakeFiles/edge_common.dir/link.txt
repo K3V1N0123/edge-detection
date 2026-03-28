@@ -1,2 +1,2 @@
-/usr/bin/ar qc libedge_common.a CMakeFiles/edge_common.dir/src/common/timer.cpp.o
+/usr/bin/ar qc libedge_common.a CMakeFiles/edge_common.dir/src/common/image_io.cpp.o CMakeFiles/edge_common.dir/src/common/timer.cpp.o
 /usr/bin/ranlib libedge_common.a

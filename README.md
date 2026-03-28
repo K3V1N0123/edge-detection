@@ -70,3 +70,11 @@ If local CUDA support is unavailable, the CPU baseline and project structure can
 - Phase 2 setup: `docs/phase-2-setup.md`
 - Phase 3 benchmark plan: `docs/phase-3-benchmark-plan.md`
 - Phase 4 system design: `docs/phase-4-system-design.md`
+- Phase 5 CPU baseline: `docs/phase-5-cpu-baseline.md`
+- CPU baseline results: `docs/cpu-baseline-results.md`
+- Phase 6 naive CUDA: `docs/phase-6-naive-cuda.md`
+- CPU vs GPU template: `docs/cpu-vs-gpu-results-template.md`
+- CPU vs GPU results: `docs/cpu-vs-gpu-results.md`
+- Phase 7 optimized CUDA plan: `docs/phase-7-optimized-cuda-plan.md`
+- Phase 7 optimized CUDA: `docs/phase-7-optimized-cuda.md`
+- Results summary: `docs/results-summary.md`

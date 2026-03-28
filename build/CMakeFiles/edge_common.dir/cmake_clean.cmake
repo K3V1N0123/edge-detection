@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/edge_common.dir/src/common/image_io.cpp.o"
+  "CMakeFiles/edge_common.dir/src/common/image_io.cpp.o.d"
   "CMakeFiles/edge_common.dir/src/common/timer.cpp.o"
   "CMakeFiles/edge_common.dir/src/common/timer.cpp.o.d"
   "libedge_common.a"

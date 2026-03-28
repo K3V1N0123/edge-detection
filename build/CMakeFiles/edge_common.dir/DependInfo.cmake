@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/kevin/Documents/edge-detection/src/common/image_io.cpp" "CMakeFiles/edge_common.dir/src/common/image_io.cpp.o" "gcc" "CMakeFiles/edge_common.dir/src/common/image_io.cpp.o.d"
   "/Users/kevin/Documents/edge-detection/src/common/timer.cpp" "CMakeFiles/edge_common.dir/src/common/timer.cpp.o" "gcc" "CMakeFiles/edge_common.dir/src/common/timer.cpp.o.d"
   )
 

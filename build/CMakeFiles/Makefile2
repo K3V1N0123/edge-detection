@@ -65,11 +65,13 @@ CMAKE_BINARY_DIR = /Users/kevin/Documents/edge-detection/build
 # The main recursive "all" target.
 all: CMakeFiles/edge_common.dir/all
 all: CMakeFiles/cpu_baseline.dir/all
+all: CMakeFiles/compare_images.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/edge_common.dir/codegen
 codegen: CMakeFiles/cpu_baseline.dir/codegen
+codegen: CMakeFiles/compare_images.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -79,6 +81,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/edge_common.dir/clean
 clean: CMakeFiles/cpu_baseline.dir/clean
+clean: CMakeFiles/compare_images.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -88,12 +91,12 @@ clean: CMakeFiles/cpu_baseline.dir/clean
 CMakeFiles/edge_common.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/edge_common.dir/build.make CMakeFiles/edge_common.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/edge_common.dir/build.make CMakeFiles/edge_common.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=3,4 "Built target edge_common"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=6,7,8 "Built target edge_common"
 .PHONY : CMakeFiles/edge_common.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/edge_common.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kevin/Documents/edge-detection/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kevin/Documents/edge-detection/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/edge_common.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kevin/Documents/edge-detection/build/CMakeFiles 0
 .PHONY : CMakeFiles/edge_common.dir/rule
@@ -105,7 +108,7 @@ edge_common: CMakeFiles/edge_common.dir/rule
 # codegen rule for target.
 CMakeFiles/edge_common.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/edge_common.dir/build.make CMakeFiles/edge_common.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=3,4 "Finished codegen for target edge_common"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=6,7,8 "Finished codegen for target edge_common"
 .PHONY : CMakeFiles/edge_common.dir/codegen
 
 # clean rule for target.
@@ -120,12 +123,12 @@ CMakeFiles/edge_common.dir/clean:
 CMakeFiles/cpu_baseline.dir/all: CMakeFiles/edge_common.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=1,2 "Built target cpu_baseline"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=3,4,5 "Built target cpu_baseline"
 .PHONY : CMakeFiles/cpu_baseline.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cpu_baseline.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kevin/Documents/edge-detection/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kevin/Documents/edge-detection/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cpu_baseline.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kevin/Documents/edge-detection/build/CMakeFiles 0
 .PHONY : CMakeFiles/cpu_baseline.dir/rule
@@ -137,13 +140,45 @@ cpu_baseline: CMakeFiles/cpu_baseline.dir/rule
 # codegen rule for target.
 CMakeFiles/cpu_baseline.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=1,2 "Finished codegen for target cpu_baseline"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=3,4,5 "Finished codegen for target cpu_baseline"
 .PHONY : CMakeFiles/cpu_baseline.dir/codegen
 
 # clean rule for target.
 CMakeFiles/cpu_baseline.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/clean
 .PHONY : CMakeFiles/cpu_baseline.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/compare_images.dir
+
+# All Build rule for target.
+CMakeFiles/compare_images.dir/all: CMakeFiles/edge_common.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compare_images.dir/build.make CMakeFiles/compare_images.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compare_images.dir/build.make CMakeFiles/compare_images.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=1,2 "Built target compare_images"
+.PHONY : CMakeFiles/compare_images.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/compare_images.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kevin/Documents/edge-detection/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/compare_images.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kevin/Documents/edge-detection/build/CMakeFiles 0
+.PHONY : CMakeFiles/compare_images.dir/rule
+
+# Convenience name for target.
+compare_images: CMakeFiles/compare_images.dir/rule
+.PHONY : compare_images
+
+# codegen rule for target.
+CMakeFiles/compare_images.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compare_images.dir/build.make CMakeFiles/compare_images.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=1,2 "Finished codegen for target compare_images"
+.PHONY : CMakeFiles/compare_images.dir/codegen
+
+# clean rule for target.
+CMakeFiles/compare_images.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/compare_images.dir/build.make CMakeFiles/compare_images.dir/clean
+.PHONY : CMakeFiles/compare_images.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

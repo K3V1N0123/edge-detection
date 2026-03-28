@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cpu_baseline.dir/src/cpu/main.cpp.o -o cpu_baseline  libedge_common.a
+/usr/bin/c++ -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cpu_baseline.dir/src/cpu/main.cpp.o CMakeFiles/cpu_baseline.dir/src/cpu/sobel_cpu.cpp.o -o cpu_baseline  libedge_common.a
