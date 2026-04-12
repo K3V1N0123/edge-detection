@@ -731,5 +731,6 @@ CMakeFiles/cpu_baseline.dir/src/cpu/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
   /Users/kevin/Documents/edge-detection/include/image_io.hpp \
+  /Users/kevin/Documents/edge-detection/include/scharr_cpu.hpp \
   /Users/kevin/Documents/edge-detection/include/sobel_cpu.hpp \
   /Users/kevin/Documents/edge-detection/include/timer.hpp

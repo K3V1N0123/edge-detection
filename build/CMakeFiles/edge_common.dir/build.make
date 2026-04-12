@@ -76,29 +76,29 @@ CMakeFiles/edge_common.dir/src/common/image_io.cpp.o: CMakeFiles/edge_common.dir
 CMakeFiles/edge_common.dir/src/common/image_io.cpp.o: /Users/kevin/Documents/edge-detection/src/common/image_io.cpp
 CMakeFiles/edge_common.dir/src/common/image_io.cpp.o: CMakeFiles/edge_common.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/edge_common.dir/src/common/image_io.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/edge_common.dir/src/common/image_io.cpp.o -MF CMakeFiles/edge_common.dir/src/common/image_io.cpp.o.d -o CMakeFiles/edge_common.dir/src/common/image_io.cpp.o -c /Users/kevin/Documents/edge-detection/src/common/image_io.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/edge_common.dir/src/common/image_io.cpp.o -MF CMakeFiles/edge_common.dir/src/common/image_io.cpp.o.d -o CMakeFiles/edge_common.dir/src/common/image_io.cpp.o -c /Users/kevin/Documents/edge-detection/src/common/image_io.cpp
 
 CMakeFiles/edge_common.dir/src/common/image_io.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/edge_common.dir/src/common/image_io.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kevin/Documents/edge-detection/src/common/image_io.cpp > CMakeFiles/edge_common.dir/src/common/image_io.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kevin/Documents/edge-detection/src/common/image_io.cpp > CMakeFiles/edge_common.dir/src/common/image_io.cpp.i
 
 CMakeFiles/edge_common.dir/src/common/image_io.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/edge_common.dir/src/common/image_io.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kevin/Documents/edge-detection/src/common/image_io.cpp -o CMakeFiles/edge_common.dir/src/common/image_io.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kevin/Documents/edge-detection/src/common/image_io.cpp -o CMakeFiles/edge_common.dir/src/common/image_io.cpp.s
 
 CMakeFiles/edge_common.dir/src/common/timer.cpp.o: CMakeFiles/edge_common.dir/flags.make
 CMakeFiles/edge_common.dir/src/common/timer.cpp.o: /Users/kevin/Documents/edge-detection/src/common/timer.cpp
 CMakeFiles/edge_common.dir/src/common/timer.cpp.o: CMakeFiles/edge_common.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/edge_common.dir/src/common/timer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/edge_common.dir/src/common/timer.cpp.o -MF CMakeFiles/edge_common.dir/src/common/timer.cpp.o.d -o CMakeFiles/edge_common.dir/src/common/timer.cpp.o -c /Users/kevin/Documents/edge-detection/src/common/timer.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/edge_common.dir/src/common/timer.cpp.o -MF CMakeFiles/edge_common.dir/src/common/timer.cpp.o.d -o CMakeFiles/edge_common.dir/src/common/timer.cpp.o -c /Users/kevin/Documents/edge-detection/src/common/timer.cpp
 
 CMakeFiles/edge_common.dir/src/common/timer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/edge_common.dir/src/common/timer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kevin/Documents/edge-detection/src/common/timer.cpp > CMakeFiles/edge_common.dir/src/common/timer.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kevin/Documents/edge-detection/src/common/timer.cpp > CMakeFiles/edge_common.dir/src/common/timer.cpp.i
 
 CMakeFiles/edge_common.dir/src/common/timer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/edge_common.dir/src/common/timer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kevin/Documents/edge-detection/src/common/timer.cpp -o CMakeFiles/edge_common.dir/src/common/timer.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kevin/Documents/edge-detection/src/common/timer.cpp -o CMakeFiles/edge_common.dir/src/common/timer.cpp.s
 
 # Object files for target edge_common
 edge_common_OBJECTS = \

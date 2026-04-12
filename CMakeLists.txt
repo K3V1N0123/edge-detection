@@ -25,6 +25,7 @@ target_link_libraries(edge_common PUBLIC project_warnings)
 
 add_executable(cpu_baseline
     src/cpu/main.cpp
+    src/cpu/scharr_cpu.cpp
     src/cpu/sobel_cpu.cpp
 )
 
@@ -56,8 +57,16 @@ if(EDGE_DETECTION_ENABLE_CUDA)
         src/cuda/sobel_naive.cu
     )
 
+    add_executable(cuda_scharr_naive
+        src/cuda/scharr_naive.cu
+    )
+
     add_executable(cuda_optimized
         src/cuda/sobel_optimized.cu
+    )
+
+    add_executable(cuda_scharr_optimized
+        src/cuda/scharr_optimized.cu
     )
 
     set_target_properties(cuda_naive PROPERTIES
@@ -70,9 +79,25 @@ if(EDGE_DETECTION_ENABLE_CUDA)
         CUDA_STANDARD_REQUIRED ON
     )
 
+    set_target_properties(cuda_scharr_naive PROPERTIES
+        CUDA_STANDARD 14
+        CUDA_STANDARD_REQUIRED ON
+    )
+
+    set_target_properties(cuda_scharr_optimized PROPERTIES
+        CUDA_STANDARD 14
+        CUDA_STANDARD_REQUIRED ON
+    )
+
     target_link_libraries(cuda_naive PRIVATE edge_common project_warnings)
     target_include_directories(cuda_naive PRIVATE include)
 
     target_link_libraries(cuda_optimized PRIVATE edge_common project_warnings)
     target_include_directories(cuda_optimized PRIVATE include)
+
+    target_link_libraries(cuda_scharr_naive PRIVATE edge_common project_warnings)
+    target_include_directories(cuda_scharr_naive PRIVATE include)
+
+    target_link_libraries(cuda_scharr_optimized PRIVATE edge_common project_warnings)
+    target_include_directories(cuda_scharr_optimized PRIVATE include)
 endif()

@@ -1,0 +1,38 @@
+[
+{
+  "directory": "/Users/kevin/Documents/edge-detection/build",
+  "command": "/usr/bin/clang++  -I/Users/kevin/Documents/edge-detection/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/edge_common.dir/src/common/image_io.cpp.o -c /Users/kevin/Documents/edge-detection/src/common/image_io.cpp",
+  "file": "/Users/kevin/Documents/edge-detection/src/common/image_io.cpp",
+  "output": "CMakeFiles/edge_common.dir/src/common/image_io.cpp.o"
+},
+{
+  "directory": "/Users/kevin/Documents/edge-detection/build",
+  "command": "/usr/bin/clang++  -I/Users/kevin/Documents/edge-detection/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/edge_common.dir/src/common/timer.cpp.o -c /Users/kevin/Documents/edge-detection/src/common/timer.cpp",
+  "file": "/Users/kevin/Documents/edge-detection/src/common/timer.cpp",
+  "output": "CMakeFiles/edge_common.dir/src/common/timer.cpp.o"
+},
+{
+  "directory": "/Users/kevin/Documents/edge-detection/build",
+  "command": "/usr/bin/clang++  -I/Users/kevin/Documents/edge-detection/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/cpu_baseline.dir/src/cpu/main.cpp.o -c /Users/kevin/Documents/edge-detection/src/cpu/main.cpp",
+  "file": "/Users/kevin/Documents/edge-detection/src/cpu/main.cpp",
+  "output": "CMakeFiles/cpu_baseline.dir/src/cpu/main.cpp.o"
+},
+{
+  "directory": "/Users/kevin/Documents/edge-detection/build",
+  "command": "/usr/bin/clang++  -I/Users/kevin/Documents/edge-detection/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/cpu_baseline.dir/src/cpu/scharr_cpu.cpp.o -c /Users/kevin/Documents/edge-detection/src/cpu/scharr_cpu.cpp",
+  "file": "/Users/kevin/Documents/edge-detection/src/cpu/scharr_cpu.cpp",
+  "output": "CMakeFiles/cpu_baseline.dir/src/cpu/scharr_cpu.cpp.o"
+},
+{
+  "directory": "/Users/kevin/Documents/edge-detection/build",
+  "command": "/usr/bin/clang++  -I/Users/kevin/Documents/edge-detection/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/cpu_baseline.dir/src/cpu/sobel_cpu.cpp.o -c /Users/kevin/Documents/edge-detection/src/cpu/sobel_cpu.cpp",
+  "file": "/Users/kevin/Documents/edge-detection/src/cpu/sobel_cpu.cpp",
+  "output": "CMakeFiles/cpu_baseline.dir/src/cpu/sobel_cpu.cpp.o"
+},
+{
+  "directory": "/Users/kevin/Documents/edge-detection/build",
+  "command": "/usr/bin/clang++  -I/Users/kevin/Documents/edge-detection/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o -c /Users/kevin/Documents/edge-detection/src/tools/image_compare.cpp",
+  "file": "/Users/kevin/Documents/edge-detection/src/tools/image_compare.cpp",
+  "output": "CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o"
+}
+]

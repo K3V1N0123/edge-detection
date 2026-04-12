@@ -12,6 +12,13 @@ namespace {
 constexpr int kBlockX = 16;
 constexpr int kBlockY = 16;
 
+__device__ std::uint8_t loadPixelClamped(const std::uint8_t* input, int width, int height, int x, int y) {
+    if (x < 0 || y < 0 || x >= width || y >= height) {
+        return 0;
+    }
+    return input[y * width + x];
+}
+
 __global__ void sobelOptimizedKernel(const std::uint8_t* input, std::uint8_t* output, int width, int height) {
     __shared__ std::uint8_t tile[kBlockY + 2][kBlockX + 2];
 
@@ -20,39 +27,32 @@ __global__ void sobelOptimizedKernel(const std::uint8_t* input, std::uint8_t* ou
     const int local_x = threadIdx.x + 1;
     const int local_y = threadIdx.y + 1;
 
-    const auto loadPixel = [=] __device__(int x, int y) -> std::uint8_t {
-        if (x < 0 || y < 0 || x >= width || y >= height) {
-            return 0;
-        }
-        return input[y * width + x];
-    };
-
-    tile[local_y][local_x] = loadPixel(global_x, global_y);
+    tile[local_y][local_x] = loadPixelClamped(input, width, height, global_x, global_y);
 
     if (threadIdx.x == 0) {
-        tile[local_y][0] = loadPixel(global_x - 1, global_y);
+        tile[local_y][0] = loadPixelClamped(input, width, height, global_x - 1, global_y);
     }
     if (threadIdx.x == blockDim.x - 1) {
-        tile[local_y][local_x + 1] = loadPixel(global_x + 1, global_y);
+        tile[local_y][local_x + 1] = loadPixelClamped(input, width, height, global_x + 1, global_y);
     }
     if (threadIdx.y == 0) {
-        tile[0][local_x] = loadPixel(global_x, global_y - 1);
+        tile[0][local_x] = loadPixelClamped(input, width, height, global_x, global_y - 1);
     }
     if (threadIdx.y == blockDim.y - 1) {
-        tile[local_y + 1][local_x] = loadPixel(global_x, global_y + 1);
+        tile[local_y + 1][local_x] = loadPixelClamped(input, width, height, global_x, global_y + 1);
     }
 
     if (threadIdx.x == 0 && threadIdx.y == 0) {
-        tile[0][0] = loadPixel(global_x - 1, global_y - 1);
+        tile[0][0] = loadPixelClamped(input, width, height, global_x - 1, global_y - 1);
     }
     if (threadIdx.x == blockDim.x - 1 && threadIdx.y == 0) {
-        tile[0][local_x + 1] = loadPixel(global_x + 1, global_y - 1);
+        tile[0][local_x + 1] = loadPixelClamped(input, width, height, global_x + 1, global_y - 1);
     }
     if (threadIdx.x == 0 && threadIdx.y == blockDim.y - 1) {
-        tile[local_y + 1][0] = loadPixel(global_x - 1, global_y + 1);
+        tile[local_y + 1][0] = loadPixelClamped(input, width, height, global_x - 1, global_y + 1);
     }
     if (threadIdx.x == blockDim.x - 1 && threadIdx.y == blockDim.y - 1) {
-        tile[local_y + 1][local_x + 1] = loadPixel(global_x + 1, global_y + 1);
+        tile[local_y + 1][local_x + 1] = loadPixelClamped(input, width, height, global_x + 1, global_y + 1);
     }
 
     __syncthreads();

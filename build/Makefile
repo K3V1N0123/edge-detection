@@ -227,6 +227,30 @@ src/cpu/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/src/cpu/main.cpp.s
 .PHONY : src/cpu/main.cpp.s
 
+src/cpu/scharr_cpu.o: src/cpu/scharr_cpu.cpp.o
+.PHONY : src/cpu/scharr_cpu.o
+
+# target to build an object file
+src/cpu/scharr_cpu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/src/cpu/scharr_cpu.cpp.o
+.PHONY : src/cpu/scharr_cpu.cpp.o
+
+src/cpu/scharr_cpu.i: src/cpu/scharr_cpu.cpp.i
+.PHONY : src/cpu/scharr_cpu.i
+
+# target to preprocess a source file
+src/cpu/scharr_cpu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/src/cpu/scharr_cpu.cpp.i
+.PHONY : src/cpu/scharr_cpu.cpp.i
+
+src/cpu/scharr_cpu.s: src/cpu/scharr_cpu.cpp.s
+.PHONY : src/cpu/scharr_cpu.s
+
+# target to generate assembly for a file
+src/cpu/scharr_cpu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_baseline.dir/build.make CMakeFiles/cpu_baseline.dir/src/cpu/scharr_cpu.cpp.s
+.PHONY : src/cpu/scharr_cpu.cpp.s
+
 src/cpu/sobel_cpu.o: src/cpu/sobel_cpu.cpp.o
 .PHONY : src/cpu/sobel_cpu.o
 
@@ -295,6 +319,9 @@ help:
 	@echo "... src/cpu/main.o"
 	@echo "... src/cpu/main.i"
 	@echo "... src/cpu/main.s"
+	@echo "... src/cpu/scharr_cpu.o"
+	@echo "... src/cpu/scharr_cpu.i"
+	@echo "... src/cpu/scharr_cpu.s"
 	@echo "... src/cpu/sobel_cpu.o"
 	@echo "... src/cpu/sobel_cpu.i"
 	@echo "... src/cpu/sobel_cpu.s"

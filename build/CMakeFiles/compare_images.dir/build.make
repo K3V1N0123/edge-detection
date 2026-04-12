@@ -76,15 +76,15 @@ CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o: CMakeFiles/compare_
 CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o: /Users/kevin/Documents/edge-detection/src/tools/image_compare.cpp
 CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o: CMakeFiles/compare_images.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/kevin/Documents/edge-detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o -MF CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o.d -o CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o -c /Users/kevin/Documents/edge-detection/src/tools/image_compare.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o -MF CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o.d -o CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.o -c /Users/kevin/Documents/edge-detection/src/tools/image_compare.cpp
 
 CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kevin/Documents/edge-detection/src/tools/image_compare.cpp > CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kevin/Documents/edge-detection/src/tools/image_compare.cpp > CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.i
 
 CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kevin/Documents/edge-detection/src/tools/image_compare.cpp -o CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kevin/Documents/edge-detection/src/tools/image_compare.cpp -o CMakeFiles/compare_images.dir/src/tools/image_compare.cpp.s
 
 # Object files for target compare_images
 compare_images_OBJECTS = \
