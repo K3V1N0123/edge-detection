@@ -1,80 +1,80 @@
-# edge-detection
+# GPU-Accelerated Edge Detection with CUDA
 
-High-performance image processing project focused on Sobel edge detection using C++, OpenCV, and CUDA.
+Academic project exploring GPU parallelism for image edge detection using Sobel and Scharr operators, comparing sequential CPU, naive CUDA, and shared-memory-optimized CUDA implementations.
 
-## Project Overview
+**Team:** Tanay Shankarikoppa, Kevin Vataliya, Kumar Harsh, Shruthi Andra  
+**Guide:** Dr. Neelima B | **School:** Manipal Institute of Technology | **March 2026**
 
-This project compares three execution paths for edge detection:
+## Project Structure
 
-- CPU baseline using C++
-- Naive CUDA implementation using one thread per pixel
-- Optimized CUDA implementation using better memory access patterns
+| Module | Description |
+|--------|-------------|
+| `include/` | Core headers: `GrayImage`, `Timer`, Sobel/Scharr CPU interfaces |
+| `src/cpu/` | Sequential CPU implementations (`main.cpp`, `sobel_cpu.cpp`, `scharr_cpu.cpp`) |
+| `src/cuda/` | GPU kernels: naive (1 thread/pixel) and optimized (shared memory, halo loading) for both Sobel and Scharr |
+| `src/common/` | Shared `image_io.cpp` (PGM P5 format) and `timer.cpp` |
+| `src/tools/` | `image_compare.cpp` — pixel-level diff for correctness validation |
+| `notebooks/` | Jupyter notebooks (Google Colab) for GPU experimentation |
+| `benchmarks/` | `colab_naive_benchmark.py` — automated multi-run timing script |
+| `docs/` | result summary |
+| `samples/images/` | Test patterns (128×128 up to 1920×1080) and sample outputs |
 
-The target outcome is a reproducible comparison of correctness and performance, followed by a real-time visualization demo for image and video inputs.
+## Algorithms
 
-## Current Status
+- **Sobel operator** — 3×3 kernels `Gx`, `Gy` with coefficients `[1, 2, 1]` / `[−1, 0, 1]`
+- **Scharr operator** — 3×3 kernels with coefficients `[3, 10, 3]` / `[−3, 0, 3]` for improved rotational symmetry
 
-- Phase 1 complete: scope, roadmap, and prerequisites documented
-- Phase 2 complete: repository scaffolding and starter build setup added
-- Phase 3 complete: benchmark and validation plan documented
-- Functional implementation not started yet
+## Implementation Variants
 
-## Planned Workflow
+| Variant | Description |
+|---------|-------------|
+| **CPU Baseline** | Sequential C++ convolution (correctness reference) |
+| **Naive CUDA** | One GPU thread per pixel, global memory reads |
+| **Optimized CUDA** | Shared memory tiles with halo loading for coalesced access, boundary clamping |
 
-1. Define scope, deliverables, and prerequisites
-2. Set up repository structure and build system
-3. Finalize benchmark requirements and validation criteria
-4. Implement CPU Sobel baseline
-5. Implement naive CUDA Sobel kernel
-6. Optimize CUDA path with shared memory and tuning
-7. Benchmark CPU vs GPU variants
-8. Integrate real-time video processing with OpenCV
-9. Validate outputs and finalize documentation
 
-## Core Deliverables
-
-- CPU Sobel implementation
-- Naive CUDA Sobel implementation
-- Optimized CUDA Sobel implementation
-- Benchmark results across multiple input sizes
-- Real-time visualization demo
-- Final methodology and usage documentation
 
 ## Prerequisites
 
-### Required
+- C++17 compiler (Clang, GCC, MSVC)
+- CMake 3.18+
+- OpenCV (optional — enables extended I/O; PGM-only mode works without it)
+- NVIDIA CUDA Toolkit + `nvcc` (optional — for GPU targets)
 
-- C++ compiler with modern standard support
-- OpenCV installed for image and video I/O
-- CMake for build configuration
+## Build
 
-### For CUDA Phases
+```bash
+# CPU baseline + tools only
+cmake -B build && cmake --build build
 
-- NVIDIA GPU with CUDA support
-- Matching NVIDIA driver and CUDA toolkit
-- `nvcc` compiler available on the target machine
+# With CUDA targets
+cmake -B build-cuda -DEDGE_DETECTION_ENABLE_CUDA=ON && cmake --build build-cuda
 
-If local CUDA support is unavailable, the CPU baseline and project structure can still be completed locally, and CUDA phases can be run on Google Colab or another compatible remote NVIDIA environment.
+# Disable OpenCV (pure PGM mode)
+cmake -B build -DEDGE_DETECTION_ENABLE_OPENCV=OFF
+```
 
-## Development Setup Note
+## Usage
 
-- Local machine is used for documentation, planning, and non-CUDA project work
-- Google Colab is used for CUDA compilation and execution where local `nvcc` compatibility is unavailable
-- CUDA benchmarking results should clearly state when they were produced in Colab instead of the local machine
+```bash
+# Generate a test pattern
+./cpu_baseline --generate-test input.pgm [width height]
 
-## Documentation
+# Apply edge detection (default: Sobel)
+./cpu_baseline input.pgm output.pgm
+./cpu_baseline --algorithm scharr input.pgm output.pgm
 
-- Project synopsis: `synopsis.txt`
-- Full methodology: `methodology.txt`
-- Phase 1 scope and roadmap: `docs/phase-1-scope.md`
-- Phase 2 setup: `docs/phase-2-setup.md`
-- Phase 3 benchmark plan: `docs/phase-3-benchmark-plan.md`
-- Phase 4 system design: `docs/phase-4-system-design.md`
-- Phase 5 CPU baseline: `docs/phase-5-cpu-baseline.md`
-- CPU baseline results: `docs/cpu-baseline-results.md`
-- Phase 6 naive CUDA: `docs/phase-6-naive-cuda.md`
-- CPU vs GPU template: `docs/cpu-vs-gpu-results-template.md`
-- CPU vs GPU results: `docs/cpu-vs-gpu-results.md`
-- Phase 7 optimized CUDA plan: `docs/phase-7-optimized-cuda-plan.md`
-- Phase 7 optimized CUDA: `docs/phase-7-optimized-cuda.md`
-- Results summary: `docs/results-summary.md`
+# Compare two outputs pixel-by-pixel
+./compare_images reference.pgm candidate.pgm
+
+# CUDA variants
+./cuda_naive input.pgm output.pgm
+./cuda_optimized input.pgm output.pgm
+```
+
+## GPU Development (Google Colab)
+
+Notebooks in `notebooks/` provide end-to-end GPU development:
+- `sobel.ipynb` — Sobel operator: CPU, naive CUDA, optimized CUDA
+- `scharr.ipynb` — Scharr operator: CPU, naive CUDA, optimized CUDA
+- `scharr_vs_sobel.ipynb` — Quality comparison of both operators
